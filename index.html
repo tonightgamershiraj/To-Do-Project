@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskTracker - Smart Task Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+</head>
+<body>
+    <div class="anime-character"></div>
+    
+    <div class="container">
+        <header>
+            <div class="theme-toggle-container">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                    <span class="theme-toggle-icon light">☀️</span>
+                    <span class="theme-toggle-icon dark">🌙</span>
+                </button>
+            </div>
+            <div class="logo-container">
+                <div class="logo">
+                    <span class="checkmark">✓</span>
+                </div>
+                <h1>TaskTracker</h1>
+            </div>
+            <p class="tagline">Your Smart Task Management Solution</p>
+            
+            <div class="quote-container">
+                <p id="motivational-quote">"The secret of getting ahead is getting started."</p>
+                <p id="quote-author">- Mark Twain</p>
+            </div>
+        </header>
+
+        <div class="task-form-container">
+            <h2>Add New Task</h2>
+            <form id="task-form">
+                <div class="form-group">
+                    <input type="text" id="task-title" placeholder="Task Title" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="task-description" placeholder="Task Description" rows="3"></textarea>
+                </div>
+                <div class="form-group date-time-group">
+                    <div class="date-input">
+                        <label for="task-due-date">Due Date:</label>
+                        <input type="date" id="task-due-date" required>
+                    </div>
+                    <div class="time-input">
+                        <label for="task-due-time">Due Time:</label>
+                        <input type="time" id="task-due-time" required>
+                    </div>
+                </div>
+                <button type="submit" class="btn-add">Add Task</button>
+            </form>
+        </div>
+
+        <div class="tasks-container">
+            <div class="tasks-header">
+                <h2>Your Tasks</h2>
+                <div class="filter-options">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="pending">Pending</button>
+                    <button class="filter-btn" data-filter="completed">Completed</button>
+                </div>
+            </div>
+            
+            <div id="tasks-list">
+                <!-- Tasks will be added here dynamically -->
+                <div class="empty-state">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik0xMiAyQzYuNDggMiAyIDYuNDggMiAxMkMyIDE3LjUyIDYuNDggMjIgMTIgMjJDMTcuNTIgMjIgMjIgMTcuNTIgMjIgMTJDMjIgNi40OCAxNy41MiAyIDEyIDJaTTEyIDIwQzcuNTkgMjAgNCAxNi40MSA0IDEyQzQgNy41OSA3LjU5IDQgMTIgNEMxNi40MSA0IDIwIDcuNTkgMjAgMTJDMjAgMTYuNDEgMTYuNDEgMjAgMTIgMjBaTTYuNSA5TDEwIDE1LjUxTDEyLjUgMTJMMTcuNSAxOEg2LjVaIiBmaWxsPSIjZDFkMWQxIi8+PC9zdmc+" alt="No tasks" class="empty-icon">
+                    <p>No tasks yet. Add your first task above!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="task-modal" id="task-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Edit Task</h2>
+            <form id="edit-task-form">
+                <input type="hidden" id="edit-task-id">
+                <div class="form-group">
+                    <input type="text" id="edit-task-title" placeholder="Task Title" required>
+                </div>
+                <div class="form-group">
+                    <textarea id="edit-task-description" placeholder="Task Description" rows="3"></textarea>
+                </div>
+                <div class="form-group date-time-group">
+                    <div class="date-input">
+                        <label for="edit-task-due-date">Due Date:</label>
+                        <input type="date" id="edit-task-due-date" required>
+                    </div>
+                    <div class="time-input">
+                        <label for="edit-task-due-time">Due Time:</label>
+                        <input type="time" id="edit-task-due-time" required>
+                    </div>
+                </div>
+                <button type="submit" class="btn-update">Update Task</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 TaskTracker - Your Smart Task Management Solution</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
